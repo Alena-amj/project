@@ -2,7 +2,7 @@
 title: "Inflation Data"
 author: "Aaron Peikert"
 date: "`r Sys.Date()`"
-output: pdf_document
+output: html_document
 repro:
   packages:
     - here
@@ -49,5 +49,8 @@ inflation %>%
   ungroup() %>% 
   ggplot() +
   geom_line(aes(date, value, color = name)) +
-  NULL
+  theme_minimal() +
+  ylab("subjective inflation in %-points") +
+  labs(color = "") +
+  theme(legend.position = c(.1, .9))
 ```
